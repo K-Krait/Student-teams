@@ -1,0 +1,47 @@
+.header_wrap {
+    background-color: rgb(61, 104, 158);
+  }
+  .nav_text {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .form_container {
+    background: rgb(255, 255, 255);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form_colum {
+    margin: 0 auto;
+  }
+  .header_ST {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .header_ST > h2 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form_enter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .footer_wrap {
+    margin-top: 2rem;
+  }
+  .footer_wrap_2 {
+    margin-top: 1rem;
+    border-top: 1px solid silver;
+  }
+  
+  @media screen and (max-width: 991px) {
+    .footer_wrap_3 {
+      display: inline-block;
+    }
+  }
+  
