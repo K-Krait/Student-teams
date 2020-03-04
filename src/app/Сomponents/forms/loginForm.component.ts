@@ -14,7 +14,7 @@ export class loginFormComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  condition: boolean = false;
+  userNotFound: boolean = false;
 
   regions: string[] = ["Кировская область", "Московская область", "Ленинградская область", "Воронежская область"];
 
@@ -32,7 +32,7 @@ export class loginFormComponent implements OnInit {
           }
         }
       } else {
-        this.condition = true;
+        this.userNotFound = true;
       }
     }
   }

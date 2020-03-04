@@ -1,0 +1,27 @@
+.header_wrap {
+  background-color: rgb(61, 104, 158);
+}
+
+.nav_text {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn {
+  background: rgb(61, 104, 158);
+  color: white;
+}
+
+#but {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.addBookForm{
+    margin-top: 2rem;
+}
+
+#but1{
+    margin-right: 1rem;
+}

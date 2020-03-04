@@ -9,6 +9,15 @@ export class mainPageComponent implements OnInit {
 
   constructor() { }
 
+  addBookFormVisibility : boolean = false; 
+  addBookBtnVisibility : boolean = true; 
+
+  addBook(){
+    this.addBookBtnVisibility = false;
+    
+    this.addBookFormVisibility = true;
+    
+  }
   ngOnInit() {
   }
 

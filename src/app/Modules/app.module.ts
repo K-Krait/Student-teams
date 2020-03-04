@@ -7,11 +7,13 @@ import { loginFormComponent } from '../Сomponents/forms/loginForm.component';
 import { startPageComponent } from '../Сomponents/startPage/startPage.component';
 import { mainPageComponent } from '../Сomponents/mainPage/mainPage.component';
 import { notFoundPageComponent } from '..//Сomponents/notFoundPage/notFoundPage.component';
+import { CardComponent } from '../Сomponents/card/card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, loginFormComponent, startPageComponent, mainPageComponent, notFoundPageComponent,
+    CardComponent
     
   ],
   imports: [
