@@ -27,11 +27,15 @@
         id="but"
         value="Добавить книгу"
         *ngIf="addBookBtnVisibility"
-        (click)="addBook()"
+        (click)="addBookForm()"
       />
 
-
-      <app-card></app-card>
+      <app-card
+        [cardImg]=""
+        [cardTitle]="card.cardTitle"
+        [cardText]="card.cardText"
+        [cardTextFooter]="card.cardTextFooter"
+      ></app-card>
 
     </div>
     <div class="col-1"></div>
@@ -67,6 +71,7 @@
                   name="namebk"
                   id="namebook"
                   placeholder="Название книги"
+                  [(ngModel)]="card.cardTitle"
                 />
               </div>
               <div class="form-group">
@@ -77,6 +82,7 @@
                   name="dateB"
                   id="dateBook"
                   placeholder="0000"
+                  [(ngModel)]="card.cardTextFooter"
                 />
               </div>
               <div class="form-group">
@@ -88,6 +94,7 @@
                   rows="5"
                   class="form-control"
                   placeholder="Краткое описание"
+                  [(ngModel)]="card.cardText"
                 ></textarea>
               </div>
               <label for="photoBk">Загрузите изображение книги </label>
@@ -100,8 +107,14 @@
                 accept="image/*,image/jpeg"
               />
               <br /><br />
-              <input type="button" class="btn" id="but1" value="Добавить" />
-              <input type="button" class="btn" id="but2" value="Отмена" />
+              <input type="button" class="btn" id="but1" value="Добавить" (click)="addBookEnter()">
+              <input
+                type="button"
+                class="btn"
+                id="but2"
+                value="Отмена"
+                (click)="addBookCancel()"
+              />
             </form>
           </div>
         </div>
