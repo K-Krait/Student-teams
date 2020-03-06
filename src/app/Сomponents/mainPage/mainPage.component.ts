@@ -7,17 +7,20 @@ import { Card } from "../../Entities/card";
   styleUrls: ["./mainPage.component.css"]
 })
 export class mainPageComponent implements OnInit {
-  constructor() {}
-
+  
   addBookFormVisibility: boolean = false;
   addBookBtnVisibility: boolean = true;
+  
+  card: Card = new Card();
+  
+  constructor() {}
+
+  
 
   addBookForm() {
     this.addBookBtnVisibility = false;
     this.addBookFormVisibility = true;
   }
-
-  card: Card = new Card();
 
   addBookEnter(){
     this.addBookFormVisibility = false;
