@@ -15,9 +15,13 @@ export class mainPageComponent implements OnInit {
   
   constructor() {}
 
-  
+  public cardsItem: string[];
 
-  addBookForm() {
+  getcardsItem() {
+    return this.card;
+    }
+  
+  createBook() {
     this.addBookBtnVisibility = false;
     this.addBookFormVisibility = true;
   }

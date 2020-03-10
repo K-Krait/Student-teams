@@ -4,3 +4,12 @@ export class Card {
   public cardText: string;
   public cardTextFooter: string;
 }
+
+// export class addCardItem {
+//   action;
+//   done;
+//   constructor(action, done) {
+//   this.action = action;
+//   this.done = done;
+//   }
+//   }
