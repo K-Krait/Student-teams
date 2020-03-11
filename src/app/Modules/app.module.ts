@@ -8,12 +8,14 @@ import { startPageComponent } from '../Сomponents/startPage/startPage.component
 import { mainPageComponent } from '../Сomponents/mainPage/mainPage.component';
 import { notFoundPageComponent } from '..//Сomponents/notFoundPage/notFoundPage.component';
 import { CardComponent } from '../Сomponents/card/card.component';
+import { inputFileReaderComponent } from "../Сomponents/inputFileReader/InputFileReader.component";
+
 
 
 @NgModule({
   declarations: [
     AppComponent, loginFormComponent, startPageComponent, mainPageComponent, notFoundPageComponent,
-    CardComponent
+    CardComponent, inputFileReaderComponent
     
   ],
   imports: [

@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Card } from "../../Entities/card";
+import { logoRepository } from "../../Entities/logoRepository";
+import { inputFileReaderComponent } from "../inputFileReader/InputFileReader.component";
+
 
 @Component({
   selector: "app-main",
@@ -7,33 +10,56 @@ import { Card } from "../../Entities/card";
   styleUrls: ["./mainPage.component.css"]
 })
 export class mainPageComponent implements OnInit {
-  
   addBookFormVisibility: boolean = false;
   addBookBtnVisibility: boolean = true;
+  cardDeckVisibility: boolean = true;
+
+  logo = new logoRepository();
   
+
   card: Card = new Card();
-  
+  cards: Card[] = [
+    {
+      ImgUrl: "Смайл",
+      Title: "Книга 1",
+      Text: " Описание книги",
+      TextFooter: "1987"
+    },
+    {
+      ImgUrl: "Смайл",
+      Title: "Книга 2",
+      Text: " Описание книги 2",
+      TextFooter: "1999"
+    }
+  ];
+
+  filereader = new inputFileReaderComponent();
+
   constructor() {}
 
-  public cardsItem: string[];
+  getCards() {
+    return this.cards;
+  }
 
-  getcardsItem() {
-    return this.card;
-    }
-  
-  createBook() {
+  addBook() {
     this.addBookBtnVisibility = false;
+    this.cardDeckVisibility = false;
     this.addBookFormVisibility = true;
+    
   }
 
-  addBookEnter(){
+  createBook() {
     this.addBookFormVisibility = false;
+    this.cardDeckVisibility = true;
     this.addBookBtnVisibility = true;
+    this.cards.push(this.card);
+    this.card = new Card();
   }
-  
-  addBookCancel() {
+
+  createBookCancel() {
     this.addBookFormVisibility = false;
     this.addBookBtnVisibility = true;
+    this.cardDeckVisibility = true;
   }
 
   ngOnInit() {}
