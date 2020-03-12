@@ -38,7 +38,7 @@
     <div class="col">
       <div class="card-deck" id="colCards" *ngIf="cardDeckVisibility">
         <div  class="card" *ngFor="let card of getCards()">  
-          <img [src]="filereader.imgUrlBook" class="card-img-top" alt="" />
+          <img [src]="imgUrlBook" class="card-img-top" alt="" />
           <div class="card-body">
             <h5 class="card-title">{{ card.Title }}</h5>
             <p class="card-text">{{ card.Text }}</p>
@@ -103,9 +103,7 @@
               </div>
               <label for="photoBk">Загрузите изображение книги </label>
               <br />
-
-              <filereader></filereader>
-
+              <input type="file" accept="image/*" (change)="changeListener($event)"/>
               <br /><br />
               <input
                 type="button"
