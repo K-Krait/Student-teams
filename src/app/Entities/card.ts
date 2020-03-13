@@ -1,5 +1,5 @@
 export class Card {
-  public ImgUrl: string;
+  public Img: any;
   public Title: string;
   public Text: string;
   public TextFooter: string;

@@ -15,27 +15,14 @@ export class mainPageComponent {
   logo = new logoRepository();
 
   card: Card = new Card();
-  cards: Card[] = [
-    {
-      ImgUrl: "Смайл",
-      Title: "Книга 1",
-      Text: " Описание книги",
-      TextFooter: "1987"
-    },
-    {
-      ImgUrl: "Смайл",
-      Title: "Книга 2",
-      Text: " Описание книги 2",
-      TextFooter: "1999"
-    }
-  ];
+  cards: Card[] = [];
 
   constructor() {}
 
   getCards() {
     return this.cards;
   }
-  
+
   addBook() {
     this.addBookBtnVisibility = false;
     this.cardDeckVisibility = false;
@@ -46,6 +33,7 @@ export class mainPageComponent {
     this.addBookFormVisibility = false;
     this.cardDeckVisibility = true;
     this.addBookBtnVisibility = true;
+    this.cuttingTextarea();
     this.cards.push(this.card);
     this.card = new Card();
   }
@@ -55,8 +43,6 @@ export class mainPageComponent {
     this.addBookBtnVisibility = true;
     this.cardDeckVisibility = true;
   }
-
-  imgUrlBook: any;
 
   changeListener($event: any): void {
     this.readThis($event.target);
@@ -68,9 +54,15 @@ export class mainPageComponent {
     reader.readAsDataURL(file);
 
     reader.onloadend = () => {
-      // return reader.result;
-      console.log(reader.result);
-      this.imgUrlBook = reader.result;
+      this.card.Img = reader.result;
     };
+  }
+
+  cuttingTextarea() {
+    if (this.card.Text) {
+      if (this.card.Text.length >= 200) {
+        this.card.Text = this.card.Text.substring(0, 150) + " ...";
+      }
+    }
   }
 }
