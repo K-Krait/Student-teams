@@ -13,6 +13,7 @@ export class mainPageComponent {
   cardDeckVisibility: boolean = true;
 
   logo = new logoRepository();
+  todaDate: Date = new Date();
 
   card: Card = new Card();
   cards: Card[] = [];
@@ -63,6 +64,13 @@ export class mainPageComponent {
       if (this.card.Text.length >= 200) {
         this.card.Text = this.card.Text.substring(0, 150) + " ...";
       }
+    }
+  }
+
+  checkingTextFooter() {
+    let date = this.todaDate.getFullYear();
+    if (this.card.TextFooter > date) {
+      this.card.TextFooter = null;
     }
   }
 }

@@ -73,7 +73,15 @@
                   id="namebook"
                   placeholder="Название книги"
                   [(ngModel)]="card.Title"
+                  #Title="ngModel"
+                  required pattern="^[A-Za-zА-Яа-яЁё]+$"
                 />
+                <div
+                  [hidden]="Title.valid || Title.untouched"
+                  class="alert alert-danger"
+                >
+                  Укажите название книги
+                </div>
               </div>
               <div class="form-group">
                 <label for="dateBook"> Год написания: </label>
@@ -84,7 +92,16 @@
                   id="dateBook"
                   placeholder="0000"
                   [(ngModel)]="card.TextFooter"
+                  #TextFooter="ngModel"
+                  required pattern="[0-9]{4}"
+                  (change) = "checkingTextFooter()"
                 />
+                <div
+                  [hidden]="TextFooter.valid || TextFooter.untouched"
+                  class="alert alert-danger"
+                >
+                  Укажите год издания (год указан не корректно)
+                </div>
               </div>
               <div class="form-group">
                 <label for="descriptionBook"> Описание: </label>
@@ -96,7 +113,15 @@
                   class="form-control"
                   placeholder="Краткое описание"
                   [(ngModel)]="card.Text"
+                  #Text="ngModel"
+                  required pattern="^[A-Za-zА-Яа-яЁё]+$"
                 ></textarea>
+                <div
+                  [hidden]="Text.valid || Text.untouched"
+                  class="alert alert-danger"
+                >
+                  Заполните описание
+                </div>
               </div>
               <label for="photoBk">Загрузите изображение книги </label>
               <br />
@@ -111,6 +136,7 @@
                 class="btn"
                 id="but1"
                 value="Создать"
+                [disabled]="Title.invalid || TextFooter.invalid || Text.invalid"
                 (click)="createBook()"
               />
               <input
