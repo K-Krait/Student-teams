@@ -74,7 +74,7 @@
                   placeholder="Название книги"
                   [(ngModel)]="card.Title"
                   #Title="ngModel"
-                  required pattern="^[A-Za-zА-Яа-яЁё]+$"
+                  required pattern="^[A-Za-zА-Яа-я0-9_]+$"
                 />
                 <div
                   [hidden]="Title.valid || Title.untouched"
