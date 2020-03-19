@@ -5,18 +5,21 @@ import {
   Router
 } from "@angular/router";
 import { Observable } from "rxjs";
+import { Injectable } from "@angular/core";
 import { loginFormComponent } from "../Сomponents/forms/loginForm.component";
 
-export class AuthGuard extends loginFormComponent implements CanActivate {
-  constructor(private loginStatus: boolean, private _router: Router) {
-    super(loginStatus);
-  }
+@Injectable()
+export class AuthGuard implements CanActivate {
+  constructor(
+    private loginStatus: loginFormComponent,
+    private _router: Router
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
-    if (this.loginStatus == true) {
+    if (this.loginStatus._isLoggedIn = true) {
       this._router.navigate(["/main"]);
     }
     return;

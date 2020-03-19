@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <input type="password" id="password" class="form-control mt-3" name="password" [(ngModel)]="user.password"
-                #password="ngModel" placeholder="Пароль" required pattern="[1-3]{3}" />
+                #password="ngModel" placeholder="Пароль" required pattern="[0-9]{3}" />
             <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
                 Введите пароль
             </div>

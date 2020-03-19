@@ -10,12 +10,9 @@ export class loginFormComponent implements OnInit {
   user: User = new User();
 
   _isLoggedIn: boolean = false;
-
-  constructor(loginStatus: boolean) {
-    this._isLoggedIn = loginStatus;
-  }
-
   userNotFound: boolean = false;
+
+  constructor() {}
 
   regions: string[] = [
     "Кировская область",
@@ -37,10 +34,12 @@ export class loginFormComponent implements OnInit {
             this._isLoggedIn = true;
           }
         }
-      } else {
-        this.userNotFound = true;
-        this.user = new User();
       }
+    }
+
+    if (this._isLoggedIn == false) {
+      this.userNotFound = true;
+      this.user = new User();
     }
   }
 
