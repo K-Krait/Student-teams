@@ -37,7 +37,7 @@ export class loginFormComponent implements OnInit {
       }
     }
 
-    if (this._isLoggedIn == false) {
+    if (!this._isLoggedIn) {
       this.userNotFound = true;
       this.user = new User();
     }
