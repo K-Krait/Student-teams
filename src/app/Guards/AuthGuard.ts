@@ -1,25 +1,21 @@
 import {
   CanActivate,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router
+  RouterStateSnapshot
 } from "@angular/router";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { loginFormComponent } from "../Сomponents/forms/loginForm.component";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
-  constructor(
-    private loginStatus: loginFormComponent,
-    private _router: Router
-  ) {}
+  constructor(private loginStatus: loginFormComponent) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
-    if (this.loginStatus._isLoggedIn) {
+    if (this.loginStatus.user._isLoggedIn) {
       return true;
     }
   }

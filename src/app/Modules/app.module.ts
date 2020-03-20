@@ -8,6 +8,8 @@ import { startPageComponent } from "../Сomponents/startPage/startPage.component
 import { mainPageComponent } from "../Сomponents/mainPage/mainPage.component";
 import { notFoundPageComponent } from "..//Сomponents/notFoundPage/notFoundPage.component";
 import { CardComponent } from "../Сomponents/card/card.component";
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { CardComponent } from "../Сomponents/card/card.component";
     notFoundPageComponent,
     CardComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
