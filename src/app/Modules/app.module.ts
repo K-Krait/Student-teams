@@ -6,10 +6,8 @@ import { AppComponent } from "../Сomponents/app.component";
 import { loginFormComponent } from "../Сomponents/forms/loginForm.component";
 import { startPageComponent } from "../Сomponents/startPage/startPage.component";
 import { mainPageComponent } from "../Сomponents/mainPage/mainPage.component";
-import { notFoundPageComponent } from "..//Сomponents/notFoundPage/notFoundPage.component";
+import { notFoundPageComponent } from "../Сomponents/notFoundPage/notFoundPage.component";
 import { CardComponent } from "../Сomponents/card/card.component";
-import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
@@ -20,8 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     notFoundPageComponent,
     CardComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [CardComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

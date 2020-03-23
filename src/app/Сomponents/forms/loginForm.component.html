@@ -3,7 +3,7 @@
         <div class="form-group">
             <select class="form-control region" id="region" name="region" [(ngModel)]="user.region" #region="ngModel" required>
                 <option [ngValue]="undefined" disabled>Выберите регион</option>
-                <option *ngFor="let item of regions" [ngValue]="item">{{item}}</option>
+                <option *ngFor="let item of regionsList" [ngValue]="item">{{item}}</option>
             </select>
             <div [hidden]="region.valid || region.untouched" class="alert alert-danger">
                 Выберите регион
@@ -23,7 +23,7 @@
                 Введите пароль
             </div>
         </div>
-        <div *ngIf="userNotFound" class="not-found">
+        <div *ngIf="loggedStatus.userNotFound" class="not-found">
             Пользователь не найден
         </div>
         <div class="btn_form form-group">
