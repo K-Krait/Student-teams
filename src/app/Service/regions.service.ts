@@ -1,3 +1,8 @@
+import { Injectable } from "@angular/core";
+
+@Injectable({
+  providedIn: "root"
+})
 export class Regions {
   public regions: string[] = [
     "Кировская область",

@@ -1,3 +1,8 @@
+import { Injectable } from "@angular/core";
+
+@Injectable({
+  providedIn: "root"
+})
 export class loggedStatus {
   public _isLoggedIn: boolean = false;
   public userNotFound: boolean = false;
