@@ -7,6 +7,9 @@ import { loginFormComponent } from "../Сomponents/forms/loginForm.component";
 import { startPageComponent } from "../Сomponents/startPage/startPage.component";
 import { mainPageComponent } from "../Сomponents/mainPage/mainPage.component";
 import { notFoundPageComponent } from "../Сomponents/notFoundPage/notFoundPage.component";
+import { RegionsService } from "../Service/regions.service";
+import { UsersService } from "../Service/users.service";
+import { AuthService } from "../Service/auth.service";
 
 @NgModule({
   declarations: [
@@ -17,7 +20,7 @@ import { notFoundPageComponent } from "../Сomponents/notFoundPage/notFoundPage.
     notFoundPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [RegionsService, UsersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

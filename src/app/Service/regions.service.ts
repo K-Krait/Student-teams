@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root"
 })
-export class Regions {
+export class RegionsService {
   public regions: string[] = [
     "Кировская область",
     "Московская область",
