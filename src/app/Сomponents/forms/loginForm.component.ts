@@ -40,9 +40,8 @@ export class loginFormComponent implements OnInit {
       }
     }
 
-    this.authService.getStatusLogin(this.loginStatus);
+    this.authService.postStatusLogin(this.loginStatus);
 
-    console.log(this.loginStatus);
     if (this.loginStatus == "true") {
       this.router.navigate(["/main"]);
     }

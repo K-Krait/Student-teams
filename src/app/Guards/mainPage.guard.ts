@@ -15,8 +15,8 @@ export class mainPageGuard implements CanActivate {
   isLoggedIn: any;
 
   constructor(public authService: AuthService, private router: Router) {
-    const loggedIn = this.authService.getStatusLogin(status);
-    loggedIn.subscribe((status) => {
+    const loginObservable = this.authService.getStatusLoginObservable();
+    loginObservable.subscribe((status: string) => {
       this.isLoggedIn = status;
     });
   }
