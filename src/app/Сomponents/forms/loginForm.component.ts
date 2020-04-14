@@ -14,13 +14,14 @@ export class loginFormComponent implements OnInit {
   regionsList: string[] = [];
   user: User = new User();
   usersList: User[];
+  loginStatus: string;
 
   constructor(
     public router: Router,
     public regions: RegionsService,
     public users: UsersService,
     public authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.regionsList = this.regions.getRegions();
@@ -32,17 +33,21 @@ export class loginFormComponent implements OnInit {
       if (this.user.login == this.usersList[i].login) {
         if (this.user.password == this.usersList[i].password) {
           if (this.user.region == this.usersList[i].region) {
-            this.authService.isLoggedIn = true;
+            localStorage.setItem(this.user.login, 'true');
+            this.loginStatus = localStorage.getItem(this.user.login);
           }
         }
       }
     }
 
-    if (this.authService.isLoggedIn) {
+    this.authService.getStatusLogin(this.loginStatus);
+
+    console.log(this.loginStatus);
+    if (this.loginStatus == "true") {
       this.router.navigate(["/main"]);
     }
 
-    if (!this.authService.isLoggedIn) {
+    if (this.loginStatus == "false") {
       this.authService.userNotFound = true;
       this.user = new User();
     }

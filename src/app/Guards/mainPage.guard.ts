@@ -12,13 +12,21 @@ import { AuthService } from "../Service/auth.service";
   providedIn: "root"
 })
 export class mainPageGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  isLoggedIn: any;
+
+  constructor(public authService: AuthService, private router: Router) {
+    const loggedIn = this.authService.getStatusLogin(status);
+    loggedIn.subscribe((status) => {
+      this.isLoggedIn = status;
+    });
+  }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authService.isLoggedIn) {
+    if (this.isLoggedIn == 'true') {
+
       return true;
     }
     this.router.navigate(["/"]);

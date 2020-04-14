@@ -1,16 +1,27 @@
 import { Injectable } from "@angular/core";
+import { Observable } from 'rxjs';
 
-import { Observable, of } from "rxjs";
-import { tap, delay } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  isLoggedIn = false;
   userNotFound = false;
 
-  logout(): void {
-    this.isLoggedIn = false;
+  constructor() {
+  }
+
+  public getStatusLogin(status): any {
+    const loginStatus = new Observable(observer => {
+      observer.next(status);
+    });
+
+    return loginStatus;
   }
 }
+
+
+
+
+
+
